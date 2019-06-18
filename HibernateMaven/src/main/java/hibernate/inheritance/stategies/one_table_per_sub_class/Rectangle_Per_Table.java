@@ -1,13 +1,16 @@
-package hibernate.inheritance.stategies.one_table_per_class_hierarchy;
+package hibernate.inheritance.stategies.one_table_per_sub_class;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue("R")
-public class Rectangle extends Shape {
+@Table(name = "table_per_rectangle")
+@PrimaryKeyJoinColumn(name = "ID")
+public class Rectangle_Per_Table extends Shape_Per_Table {
+
+    @Id
+    @Column(name = "rec_id", updatable = false, unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int rec_id;
 
     @Column(name = "rectangle_length")
     double length;
@@ -15,12 +18,12 @@ public class Rectangle extends Shape {
     @Column(name = "rectangle_breath")
     double breath;
 
-    public Rectangle()
+    public Rectangle_Per_Table()
     {
 
     }
 
-    public Rectangle(String shapeName, double length, double breath)
+    public Rectangle_Per_Table(String shapeName, double length, double breath)
     {
         super(shapeName);
         this.length = length;
