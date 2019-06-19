@@ -14,12 +14,18 @@ public class HibernateSessionUtil {
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
-            StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-            Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
+            Configuration configuration = new Configuration();
+            configuration.configure("hibernate.cfg.xml");
+            System.out.println("Hibernate Configuration loaded");
 
-            SessionFactory factory=meta.getSessionFactoryBuilder().build();
+            //apply configuration property settings to StandardServiceRegistryBuilder
+            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+            System.out.println("Hibernate serviceRegistry created");
 
-            return factory;
+            SessionFactory sessionFactory = configuration
+                    .buildSessionFactory(serviceRegistry);
+
+            return sessionFactory;
         }
         return sessionFactory;
     }

@@ -7,10 +7,10 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "ID")
 public class Rectangle_Per_Table extends Shape_Per_Table {
 
-    @Id
+    /*@Id
     @Column(name = "rec_id", updatable = false, unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int rec_id;
+    private int rec_id;*/
 
     @Column(name = "rectangle_length")
     double length;

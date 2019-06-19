@@ -7,11 +7,11 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "ID")
 public class Circle_Per_Table extends Shape_Per_Table {
 
-    @Id
+  /*  @Id
     @Column(name = "circle_id", updatable = false, unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     int circle_id;
-
+*/
     @Column(name = "circle_length")
     int length;
 

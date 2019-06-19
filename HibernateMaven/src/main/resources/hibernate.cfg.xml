@@ -27,10 +27,10 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name='hbm2ddl.auto'>create</property>
-
+<!--
         <mapping class="hibernate.inheritance.stategies.one_table_per_class_hierarchy.Shape"/>
         <mapping class="hibernate.inheritance.stategies.one_table_per_class_hierarchy.Rectangle"/>
-        <mapping class="hibernate.inheritance.stategies.one_table_per_class_hierarchy.Circle"/>
+        <mapping class="hibernate.inheritance.stategies.one_table_per_class_hierarchy.Circle"/>-->
 
         <mapping class="hibernate.inheritance.stategies.one_table_per_sub_class.Shape_Per_Table"/>
         <mapping class="hibernate.inheritance.stategies.one_table_per_sub_class.Rectangle_Per_Table"/>
